@@ -2,13 +2,16 @@
 
 import { cn } from '@/lib/utils'
 import { Home, Plus, Settings } from 'lucide-react'
-import { usePathname } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Sidebar = () => {
   const pathname = usePathname()
   const router = useRouter()
+
+  const params = useParams()
+  const companionId = params?.companionId
 
   const onNavigate = (url: string, pro: boolean) => {
     // TODO: Check if pro
@@ -25,7 +28,7 @@ const Sidebar = () => {
     },
     {
       icon: Plus,
-      href: "/create",
+      href: `/companion/${companionId}`,
       label: "Create",
       pro: true,
     },
@@ -38,7 +41,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <div className='space-y-4 flex flex-col h-full text-primary dark:bg-secondary'>
+    <div className='space-y-4 flex flex-col h-full text-primary dark:bg-secondary border-primary'>
       <div className='p-3 flex flex-1 justify-center'>
         <div className='space-y-2'>
           { routes.map((route) => (

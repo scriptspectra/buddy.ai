@@ -12,6 +12,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
 import Sidebar from '@/components/Sidebar'
+import { cn } from '@/lib/utils'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,12 +39,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         disableTransitionOnChange
       >
       <html lang="en" suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={cn(
+          `${geistSans.variable} ${geistMono.variable} antialiased bg-secondary`,
+
+          )}>
           <Navbar />
           <div className='hidden md:flex mt-16 w-20 flex-col fixed inset-y-0'>
             <Sidebar />           
           </div>
-          <header className="flex justify-end items-center p-0 gap-4 h-16">
+          <header className="flex justify-end items-center p-0 gap-4 pt-3">
             <SignedOut>
               <SignInButton />
               <SignUpButton>
