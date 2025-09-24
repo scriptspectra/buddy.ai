@@ -20,7 +20,7 @@ const CompanionIdPage = async ({
     const categories = await db.category.findMany()
 
   return (
-    <div>
+    <div className='pt-10 md:pl-25 px-10'>
         <CompanionForm 
             initialData = {companion}
             categories = {categories}
