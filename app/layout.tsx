@@ -13,6 +13,7 @@ import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
 import Sidebar from '@/components/Sidebar'
 import { cn } from '@/lib/utils'
+import { Toaster } from 'sonner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Add top padding to offset the fixed navbar */}
             <main className="pt-16">
               {children}
+              <Toaster />
             </main>
         </body>
       </html>
